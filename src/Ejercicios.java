@@ -138,26 +138,15 @@ public class Ejercicios {
                 
             }
         } catch (Exception e) {
-            System.out.println("Se ha producido un error: " + e.getLocalizedMessage());
-        }
-    }
-
-
-    public void ej5b() throws SQLException{
-        String query = "select nombre from alumnos where codigo IN (select alumno from notas where nota>=5)";
-        try (PreparedStatement ps = this.conexion.prepareStatement(query)) {
-            ResultSet resu = ps.executeQuery();
-            while (resu.next()) {
-                System.out.println(resu.getString("nombre"));
-                
+                    System.out.println("Se ha producido un error: " + e.getLocalizedMessage());
+                }
             }
-        } catch (Exception e) {
-            System.out.println("Se ha producido un error: " + e.getLocalizedMessage());
-        }
-    }
+        
+            public void ej5b() throws SQLException {
+                String query = "SELECT alumnos.nombre, asignaturas.NOMBRE, notas.NOTA from notas JOIN ";
+            }
 
-
-    public static void main(String[] args) {
+            public static void main(String[] args) {
         Ejercicios ej = new Ejercicios();
 
         ej.abrirConexion("add", "localhost", "root", "");
